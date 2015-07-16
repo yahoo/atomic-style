@@ -1,0 +1,34 @@
+{
+  "name": "atomic-style",
+  "version": "0.3.0",
+  "description": "Atomic classSets and dedupe",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "cover": "COVERAGE=true jenkins-mocha test/**/*.test.js",
+    "test": "jenkins-mocha --no-coverage test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yahoo/atomic-style.git"
+  },
+  "keywords": [
+    "atomic",
+    "style",
+    "atomizer",
+    "css",
+    "styles"
+  ],
+  "bugs": {
+    "url": "https://github.com/yahoo/jsx-test/issues"
+  },
+  "author": "Marcelo Eden",
+  "homepage": "https://github.com/yahoo/atomic-style",
+  "dependencies": {
+    "lodash": "^3.0"
+  },
+  "devDependencies": {
+    "jenkins-mocha": "^2.2",
+    "yhint": "~0.1.15"
+  }
+}

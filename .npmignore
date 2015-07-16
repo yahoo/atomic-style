@@ -1,0 +1,10 @@
+coverage/
+artifacts/
+**/npm-debug.log
+.DS_Store
+*~
+test/
+tests/
+docs/
+examples/
+Makefile
