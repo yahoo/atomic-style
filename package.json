@@ -1,12 +1,12 @@
 {
   "name": "atomic-style",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Atomic classSets and dedupe",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "cover": "COVERAGE=true jenkins-mocha test/**/*.test.js",
-    "test": "jenkins-mocha --no-coverage test/**/*.test.js"
+    "cover": "COVERAGE=true jenkins-mocha tests/**/*.test.js",
+    "test": "jenkins-mocha --no-coverage tests/**/*.test.js"
   },
   "repository": {
     "type": "git",

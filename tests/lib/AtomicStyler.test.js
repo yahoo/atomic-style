@@ -9,7 +9,7 @@ describe('AtomicStyler', function() {
     beforeEach(function() {
         this.atomize = new AtomicStyler({
             'btn': 'D(ib) C(white) Bg(gray)',
-            'btn-blue': ['Bg(blue)', 'Bd(n) BdT']
+            'btn-blue': ['Bg(blue) Bg(grey):h', 'Bd(n) BdT']
         });
     });
 
@@ -17,14 +17,15 @@ describe('AtomicStyler', function() {
         it('sets styles as a map', function() {
             assert.deepEqual(this.atomize._styles, {
                 'btn': {
-                    'Bg': '(gray)',
-                    'C': '(white)',
-                    'D': '(ib)'
+                    'Bg': 'Bg(gray)',
+                    'C': 'C(white)',
+                    'D': 'D(ib)'
                 },
                 'btn-blue': {
-                    'Bd': '(n)',
-                    'BdT': null,
-                    'Bg': '(blue)'
+                    'Bd': 'Bd(n)',
+                    'BdT': 'BdT',
+                    'Bg': 'Bg(blue)',
+                    'Bg:h': 'Bg(grey):h'
                 }
             });
         });
@@ -36,15 +37,16 @@ describe('AtomicStyler', function() {
 
             assert.deepEqual(this.atomize._styles, {
                 'btn': {
-                    'Bg': '(pink)',
-                    'P': '(10px)',
-                    'C': '(white)',
-                    'D': '(ib)'
+                    'Bg': 'Bg(pink)',
+                    'P': 'P(10px)',
+                    'C': 'C(white)',
+                    'D': 'D(ib)'
                 },
                 'btn-blue': {
-                    'Bd': '(n)',
-                    'BdT': null,
-                    'Bg': '(blue)'
+                    'Bd': 'Bd(n)',
+                    'BdT': 'BdT',
+                    'Bg': 'Bg(blue)',
+                    'Bg:h': 'Bg(grey):h'
                 }
             });
         });
@@ -61,22 +63,23 @@ describe('AtomicStyler', function() {
 
             assert.deepEqual(this.atomize._styles, {
                 'btn': {
-                    'Bg': '(gray)',
-                    'C': '(white)',
-                    'D': '(ib)'
+                    'Bg': 'Bg(gray)',
+                    'C': 'C(white)',
+                    'D': 'D(ib)'
                 },
                 'btn-blue': {
-                    'Bd': '(n)',
-                    'BdT': null,
-                    'Bg': '(blue)'
+                    'Bd': 'Bd(n)',
+                    'BdT': 'BdT',
+                    'Bg': 'Bg(blue)',
+                    'Bg:h': 'Bg(grey):h'
                 },
                 'btn-pink': {
-                    'Bgc': '(pink)',
-                    'C': '(black)'
+                    'Bgc': 'Bgc(pink)',
+                    'C': 'C(black)'
                 },
                 "box": {
-                    "P": "(10px)",
-                    "M": "(5px)"
+                    "P": "P(10px)",
+                    "M": "M(5px)"
                 }
             });
         });
@@ -85,17 +88,17 @@ describe('AtomicStyler', function() {
     describe('#get', function() {
         it('gets the atomic classes', function() {
             assert.equal(this.atomize.get('btn'), 'D(ib) C(white) Bg(gray)');
-            assert.equal(this.atomize.get('btn-blue'), 'Bg(blue) Bd(n) BdT');
+            assert.equal(this.atomize.get('btn-blue'), 'Bg(blue) Bg(grey):h Bd(n) BdT');
         });
 
         it('mixes atomic classes', function() {
             assert.equal(this.atomize.get('btn btn-blue'),
-                'D(ib) C(white) Bg(blue) Bd(n) BdT');
+                'D(ib) C(white) Bg(blue) Bg(grey):h Bd(n) BdT');
         });
 
         it('adds some overrides', function() {
             assert.equal(this.atomize.get('btn btn-blue'),
-                'D(ib) C(white) Bg(blue) Bd(n) BdT');
+                'D(ib) C(white) Bg(blue) Bg(grey):h Bd(n) BdT');
         });
 
         it('overrides with an object', function() {
@@ -106,8 +109,8 @@ describe('AtomicStyler', function() {
         });
 
         it('mixes atomic classes', function() {
-            assert.equal(this.atomize.get('btn btn-blue', 'BdB'),
-                'D(ib) C(white) Bg(blue) Bd(n) BdT BdB');
+            assert.equal(this.atomize.get('btn', 'BdB Bg(grey):h'),
+                'D(ib) C(white) Bg(gray) BdB Bg(grey):h');
         });
 
         it('trims empty spaces', function() {
