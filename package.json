@@ -25,7 +25,7 @@
   "author": "Marcelo Eden",
   "homepage": "https://github.com/yahoo/atomic-style",
   "dependencies": {
-    "lodash": "^3.0"
+    "lodash": "^4.0"
   },
   "devDependencies": {
     "jenkins-mocha": "^2.2",
