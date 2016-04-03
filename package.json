@@ -28,7 +28,6 @@
     "lodash": "^3.0"
   },
   "devDependencies": {
-    "jenkins-mocha": "^2.2",
-    "yhint": "~0.1.15"
+    "jenkins-mocha": "^2.2"
   }
 }
