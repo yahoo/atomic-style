@@ -1,6 +1,6 @@
 {
   "name": "atomic-style",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Atomic classSets and dedupe",
   "license": "MIT",
   "main": "index.js",
